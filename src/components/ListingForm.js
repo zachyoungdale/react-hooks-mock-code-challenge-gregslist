@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ListingForm({
-  setNewDescription,
-  setNewImage,
-  setNewLocation,
-  newDescription,
-  newImage,
-  newLocation,
-  addNewListing,
-}) {
+function ListingForm({ addNewListing }) {
+  const [newDescription, setNewDescription] = useState("");
+  const [newImage, setNewImage] = useState("");
+  const [newLocation, setNewLocation] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     const newListing = {
