@@ -6,6 +6,10 @@ function App() {
   const [listings, setListings] = useState([]);
   const [search, setSearch] = useState("");
 
+  function addNewListing(newObj) {
+    setListings((listings) => [...listings, newObj]);
+  }
+
   function deleteListing(id) {
     setListings((listings) => listings.filter((listing) => listing.id !== id));
   }
@@ -33,7 +37,11 @@ function App() {
         search={search}
         searchListings={searchListings}
       />
-      <ListingsContainer listings={listings} deleteListing={deleteListing} />
+      <ListingsContainer
+        listings={listings}
+        deleteListing={deleteListing}
+        addNewListing={addNewListing}
+      />
     </div>
   );
 }
